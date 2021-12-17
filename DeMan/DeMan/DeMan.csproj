@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="logoza.ru__1_-removebg-preview__1_-removebg-preview.png" />
+    <None Remove="logoza.ru__3_-removebg-preview.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="logoza.ru__1_-removebg-preview__1_-removebg-preview.png" />
+    <Resource Include="logoza.ru__3_-removebg-preview.png" />
+  </ItemGroup>
+
+</Project>
