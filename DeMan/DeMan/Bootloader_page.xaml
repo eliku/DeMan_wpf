@@ -18,12 +18,20 @@
         </Grid.RowDefinitions>
         <Grid Grid.ColumnSpan="2" Background="#FF2D2D30">
             <StackPanel x:Name="ButtonBoot" Orientation="Horizontal" HorizontalAlignment="Center" Width="800">
-                <Button x:Name="btnOpenFile" Content="Open hex-file" Background="{x:Null}" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="White" Width="175" Height="50" FontSize="13" />
-                <Button x:Name="btnStartBoot" Content="Start bootloader" Background="{x:Null}" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="White" Width="175" Height="50" FontSize="13" />
-                <Button x:Name="btnVersionBoot" Content="Version" Background="{x:Null}" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="White" Width="175" Height="50" FontSize="13" />
-                <Button x:Name="btnWriteBoot" Content="Download" Background="{x:Null}" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="White" Width="175" Height="50" FontSize="13" />
-                <Button x:Name="btnRunBoot" Content="Run" Background="{x:Null}" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="White" Width="175" Height="50" FontSize="13" />
+                <Button x:Name="btnOpenFile" Content="Open hex-file" Background="{x:Null}" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="White" Width="150" Height="50" FontSize="13" />
+                <Button x:Name="btnStartBoot" Content="Start bootloader" Background="{x:Null}" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="White" Width="150" Height="50" FontSize="13" />
+                <Button x:Name="btnVersionBoot" Content="Version" Background="{x:Null}" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="White" Width="150" Height="50" FontSize="13" />
+                <Button x:Name="btnWriteBoot" Content="Download" Background="{x:Null}" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="White" Width="150" Height="50" FontSize="13" Click="btnWriteBoot_Click" />
+                <Button x:Name="btnRunBoot" Content="Run" Background="{x:Null}" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="White" Width="150" Height="50" FontSize="13" />
             </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Margin="0,0,0,0" Grid.RowSpan="2">
+            <ProgressBar Margin="0,317,0,0" Name="PBar" HorizontalAlignment="Center" VerticalAlignment="Top" Width="640" Height="30" Value="0" BorderBrush="#FF2D2D30" Foreground="#FFACDAF5" SmallChange="0" RenderTransformOrigin="-3,0" Visibility="Visible" >
+                <ProgressBar.Background>
+                    <SolidColorBrush Color="#FF686868" Opacity="0.98"/>
+                </ProgressBar.Background>
+            </ProgressBar>
+            <TextBlock Text="{Binding ElementName=PBar, Path=Value, StringFormat={}{0:0}%}" Margin="395,322,0,0"/>
         </Grid>
     </Grid>
 
