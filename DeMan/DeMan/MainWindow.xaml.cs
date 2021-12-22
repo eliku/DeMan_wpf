@@ -23,6 +23,7 @@ namespace DeMan
         public MainWindow()
         {
             InitializeComponent();
+            productList.Items.Add("Hello");
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)

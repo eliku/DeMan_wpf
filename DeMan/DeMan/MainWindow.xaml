@@ -16,10 +16,6 @@
                 <EasingDoubleKeyFrame KeyTime="0" Value="720"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="570"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridAllPanel">
-                <EasingDoubleKeyFrame KeyTime="0" Value="900"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="824"/>
-            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="MenuClose">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
@@ -29,10 +25,6 @@
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="Menu">
                 <EasingDoubleKeyFrame KeyTime="0" Value="570"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="720"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridAllPanel">
-                <EasingDoubleKeyFrame KeyTime="0" Value="824"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="900"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
@@ -100,12 +92,7 @@
                     </Button>
                 </StackPanel>
                 <ListView  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListViewItem Height="70">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind ="ListStatus" Width="25" Height="25" VerticalAlignment="Center" Foreground="White" Margin="10,0,0,0"/>
-                            <TextBlock Text="List" VerticalAlignment="Center" Margin="20,0,10,0" Foreground="White"/>
-                        </StackPanel>
-                    </ListViewItem>
+
                     <ListViewItem Height="70">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind ="BallotOutline" Width="25" Height="25" VerticalAlignment="Center" Foreground="White" Margin="10,0,0,0"/>
@@ -133,28 +120,21 @@
                 </ListView>
             </StackPanel>
         </Grid>
-        <Grid x:Name="GridAllPanel" Grid.Column="1" Grid.Row="1" Height="75" VerticalAlignment="Top">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="9*"/>
-                <ColumnDefinition Width="73*"/>
-            </Grid.ColumnDefinitions>
-            <ComboBox materialDesign:HintAssist.Hint="Select item" Style = "{StaticResource MaterialDesignComboBox}" IsEditable="True" Foreground="White" Background="#FF3E3E42" HorizontalAlignment="Left"  Width="175" FontStyle="Italic" FontWeight="Light" Padding="0,0,0,0" Grid.ColumnSpan="2" Margin="0,0,0,37" RenderTransformOrigin="1,0.5">
-                <ComboBox.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="0"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </ComboBox.RenderTransform>
-
-                <ComboBoxItem Foreground="#FFF5EBEB" Background="#FF3F3F46" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="0" FontStyle="Oblique" RenderTransformOrigin="0.5,0.5" >Binar 10 Disel"
-                </ComboBoxItem>
-
-            </ComboBox>
-        </Grid>
-        <Grid  HorizontalAlignment="Left" Width="823" Grid.Row="1" Grid.Column="1" Margin="0,35,0,0">
-            <Frame  x:Name="AllPanel" NavigationUIVisibility="Hidden" HorizontalAlignment="Center" Width="824" Height="526" VerticalAlignment="Center"/>
+        <Grid  HorizontalAlignment="Left" Width="823" Grid.Row="1" Grid.Column="1">
+            <Frame  x:Name="AllPanel" NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Width="660" Height="560" VerticalAlignment="Center"/>
+            <StackPanel Margin="660,0,0,0">
+                <ListView x:Name="productList"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground="White" BorderThickness="12,12,12,12" BorderBrush="#89DE2323">
+                    <ListViewItem Height="50" IsSelected="True" >
+                        <ListViewItem.Style>
+                            <Style/>
+                        </ListViewItem.Style>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind ="ListStatus" Width="25" Height="25" VerticalAlignment="Center" Foreground="White" Margin="10,0,0,0"/>
+                            <TextBlock Text="List" VerticalAlignment="Center" Margin="20,0,10,0" Foreground="White"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>
