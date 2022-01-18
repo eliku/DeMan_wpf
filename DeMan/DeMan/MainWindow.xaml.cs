@@ -20,14 +20,10 @@ namespace DeMan
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
-            TextBlock tb = new TextBlock();
-            tb.Text = "First product";
-            tb.Height = 30;
-            tb.Margin = new Thickness(30, 10, 15, 0);
-            productList.Items.Add(tb);
 
         }
 
