@@ -23,7 +23,12 @@ namespace DeMan
         public MainWindow()
         {
             InitializeComponent();
-            productList.Items.Add("Hello");
+            TextBlock tb = new TextBlock();
+            tb.Text = "First product";
+            tb.Height = 30;
+            tb.Margin = new Thickness(30, 10, 15, 0);
+            productList.Items.Add(tb);
+
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
