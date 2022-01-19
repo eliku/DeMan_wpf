@@ -16,6 +16,10 @@
                 <EasingDoubleKeyFrame KeyTime="0" Value="720"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="570"/>
             </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="AllPanel">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1240"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="840"/>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="MenuClose">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
@@ -25,6 +29,10 @@
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="Menu">
                 <EasingDoubleKeyFrame KeyTime="0" Value="570"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="720"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="AllPanel">
+                <EasingDoubleKeyFrame KeyTime="0" Value="840"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1240"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
@@ -36,23 +44,27 @@
             <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
         </EventTrigger>
     </Window.Triggers>
-    <Grid Background="#FF1A1A1A" RenderTransformOrigin="0.5,0.5">
+    <Grid Background="{DynamicResource solidGrayBrush}" RenderTransformOrigin="0.5,0.5">
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
             <RowDefinition/>
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.ColumnSpan="2" MouseDown="GridBarTitul_MouseDown" Background="#FF2D2D30">
+        <Grid Grid.ColumnSpan="2" MouseDown="GridBarTitul_MouseDown" Background="{DynamicResource solidGrayBrush}">
             <StackPanel x:Name="Menu" Orientation="Horizontal" HorizontalAlignment="Right" Width="570" Margin="0,0,249,0">
-                <Menu Background="#FF2D2D30" Foreground="White">
+                <Menu Background="{DynamicResource solidGrayBrush}" Foreground="{DynamicResource solidTextBrush}">
                     <MenuItem Header="_File" Height="35" HorizontalAlignment="Left" FontFamily="Segoe UI" FontSize="13" RenderTransformOrigin="0.094,0.571">
                         <MenuItem Header="_Language" FontFamily="Segoe UI" FontSize="13">
-                            <MenuItem Header="Russian"></MenuItem>
+                            <MenuItem Header="Russian" ></MenuItem>
                             <MenuItem Header="English" ></MenuItem>
+                        </MenuItem>
+                        <MenuItem Header="_Temes" FontFamily="Segoe UI" FontSize="13">
+                            <MenuItem Header="Light" Click = "MenuLight_Click"></MenuItem>
+                            <MenuItem Header="Dark" Click="MenuDark_Click" ></MenuItem>
                         </MenuItem>
                         <MenuItem Header="_Print" FontFamily="Segoe UI" FontSize="13"/>
                         <Separator/>
@@ -60,34 +72,31 @@
                     </MenuItem>
                 </Menu>
             </StackPanel>
-
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Background="#FF2D2D30">
-                <Button x:Name="btnTurn" Height="35" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Background="{DynamicResource solidGrayBrush}">
+                <Button x:Name="btnTurn" Height="35" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource solidTextBrush}">
                     <materialDesign:PackIcon Kind ="ColorHelper"/>
                 </Button>
-                <Button x:Name="btnExpand" Height="35" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+                <Button x:Name="btnExpand" Height="35" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource solidTextBrush}">
                     <materialDesign:PackIcon Kind ="CardMultipleOutline"/>
                 </Button>
-                <Button x:Name="btnExit" Height="35" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Margin="0,0" Click="btnExit_Click">
+                <Button x:Name="btnExit" Height="35" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource solidTextBrush}" Margin="0,0" Click="btnExit_Click">
                     <materialDesign:PackIcon Kind ="CloseOutline"/>
                 </Button>
             </StackPanel>
         </Grid>
-
-        <Grid x:Name="GridMenu" Grid.RowSpan="2" Background="#FF2D2D30" HorizontalAlignment="Left" Width="200">
-            <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+        <Grid x:Name="GridMenu" Grid.RowSpan="2" Background="{DynamicResource solidGrayBrush}" HorizontalAlignment="Left" Width="200">
+            <StackPanel x:Name="SPButton" Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="200">
                 <StackPanel Orientation="Horizontal">
                     <Image x:Name="imgIcon" Height="35" Source="/logoza.ru__3_-removebg-preview.png" HorizontalAlignment="Left" Width="40" Stretch="Fill" StretchDirection="DownOnly" RenderTransformOrigin="0.5,1" Margin="10,0,0,0">
                         <Image.OpacityMask>
                             <ImageBrush ImageSource="/logoza.ru__3_-removebg-preview.png" Stretch="Fill" TileMode="Tile"/>
                         </Image.OpacityMask>
                     </Image>
-                    <TextBlock x:Name="NameProduct" Text="DeMan" Foreground="White" HorizontalAlignment="Left" TextAlignment="Center" Panel.ZIndex="-3" LineHeight="7" VerticalAlignment="Center"/>
-                    <Button x:Name="ButtonCloseMenu" Background="{x:Null}" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="White" Margin="65,0,10,0"  Click="ButtonCloseMenu_Click" Width="47">
+                    <TextBlock x:Name="NameProduct" Text="DeMan" Foreground="{DynamicResource solidTextBrush}" HorizontalAlignment="Left" TextAlignment="Center" Panel.ZIndex="-3" LineHeight="7" VerticalAlignment="Center"/>
+                    <Button x:Name="ButtonCloseMenu" Background="{x:Null}" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{DynamicResource solidTextBrush}" Margin="65,0,10,0"  Click="ButtonCloseMenu_Click" Width="47">
                         <materialDesign:PackIcon Kind ="ArrowLeft" VerticalAlignment="Center" />
                     </Button>
-                    <Button x:Name="ButtonOpenMenu" Background="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" BorderBrush="{x:Null}" Foreground="White" Margin="10,0,10,0" Visibility="Collapsed" Click="ButtonOpenMenu_Click">
+                    <Button x:Name="ButtonOpenMenu" Background="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" BorderBrush="{x:Null}" Foreground="{DynamicResource solidTextBrush}" Margin="10,0,10,0" Visibility="Collapsed" Click="ButtonOpenMenu_Click">
                         <materialDesign:PackIcon Kind ="Menu" VerticalAlignment="Center" />
                     </Button>
                 </StackPanel>
@@ -95,40 +104,68 @@
 
                     <ListViewItem Height="70">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind ="BallotOutline" Width="25" Height="25" VerticalAlignment="Center" Foreground="#FFEC9F30" Margin="10,0,0,0"/>
-                            <TextBlock Text="Parameters" VerticalAlignment="Center" Margin="20,0,10,0" Foreground="White"/>
+                            <materialDesign:PackIcon Kind ="BallotOutline" Width="25" Height="25" VerticalAlignment="Center" Foreground="{DynamicResource solidTextBrush}" Margin="10,0,0,0"/>
+                            <TextBlock Text="Parameters" VerticalAlignment="Center" Margin="20,0,10,0" Foreground="{DynamicResource solidTextBrush}"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="70">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind ="Settings" Width="25" Height="25" VerticalAlignment="Center" Foreground="#FF3D45F7" Margin="10,0,0,0"/>
-                            <TextBlock Text="Settings" VerticalAlignment="Center" Margin="20,0,10,0" Foreground="White"/>
+                            <TextBlock Text="Settings" VerticalAlignment="Center" Margin="20,0,10,0" Foreground="{DynamicResource solidTextBrush}"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="70" Selected="Boot_Click">
                         <StackPanel Orientation="Horizontal" >
                             <materialDesign:PackIcon Kind ="Download" Width="25" Height="25" VerticalAlignment="Center" Foreground="#FF72FD64"  BorderBrush="{x:Null}" Background="{x:Null}" Margin="10,0,0,0"/>
-                            <TextBlock Text="Bootloader" VerticalAlignment="Center" Margin="20,0,10,0" Foreground="White"/>
+                            <TextBlock Text="Bootloader" VerticalAlignment="Center" Margin="20,0,10,0" Foreground="{DynamicResource solidTextBrush}"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="70" VerticalAlignment="Center">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" >
                             <materialDesign:PackIcon Kind ="ChartArc" Width="25" Height="25" VerticalAlignment="Center" Foreground="#FFEE401A"  BorderBrush="{x:Null}" Background="{x:Null}" Margin="10,0,0,0"/>
-                            <TextBlock Text="Graph" VerticalAlignment="Center" Margin="20,0,10,0" Foreground="White" HorizontalAlignment="Stretch"/>
+                            <TextBlock Text="Graph" VerticalAlignment="Center" Margin="20,0,10,0" Foreground="{DynamicResource solidTextBrush}" HorizontalAlignment="Stretch"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
             </StackPanel>
         </Grid>
         <Grid  HorizontalAlignment="Left" Width="823" Grid.Row="1" Grid.Column="1">
-            <Frame  x:Name="AllPanel" NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Width="640" Height="562" VerticalAlignment="Center"/>
-            <StackPanel Margin="640,0,0,0" Background="#FF2D2D30">
-                <DataGrid x:Name="phonesGrid" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FF2D2D30" RowBackground="#FF2D2D30" AlternatingRowBackground="#FF2D2D30" Background="#FF2D2D30" BorderBrush="#FFF1F2F7" Foreground="#FFF4F4FA">
-                    <DataGrid.Columns Foreground="White">
-                        <DataGridTextColumn Header="T" Binding="{Binding Path=Title}" Width="40" Foreground="White"/>
-                        <DataGridTextColumn Header="A" Binding="{Binding Path=Company}" Width="50" Foreground="White"/>
-                        <DataGridTextColumn Header="Name" Binding="{Binding Path=Price}" Width="80" Foreground="White"/>
+            <Frame x:Name="AllPanel"  NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Width="650" Height="562" VerticalAlignment="Center" OpacityMask="Black" Background="{DynamicResource solidPanelBrush}"/>
+            <StackPanel  x:Name="NoPanel" Background="{DynamicResource solidGrayBrush}" HorizontalAlignment="Left" Width="168" Margin="655,0,0,0" Height="563" VerticalAlignment="Center">
+                <DataGrid x:Name="productGrid" HorizontalGridLinesBrush="{DynamicResource solidGrayBrush}" RowBackground="{DynamicResource solidGrayBrush}" AlternatingRowBackground="{DynamicResource solidGrayBrush}" Background="{DynamicResource solidGrayBrush}" BorderBrush="#FFF1F2F7" Foreground="#FFF4F4FA" HorizontalAlignment="Right" Width="168">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="T" Binding="{Binding Path=Title}" Width="40">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="{DynamicResource solidGrayBrush}"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource solidTextBrush}"/>
+                                    <Setter Property="FontSize" Value="13"/>
+                                    <Setter Property="Padding" Value="10,0,0,0"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="A" Binding="{Binding Path=Company}" Width="50" Foreground="{DynamicResource solidTextBrush}">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="{DynamicResource solidGrayBrush}"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource solidTextBrush}"/>
+                                    <Setter Property="FontSize" Value="13"/>
+                                    <Setter Property="Padding" Value="10,0,0,0"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Path=Price}" Width="80">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="{DynamicResource solidGrayBrush}"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource solidTextBrush}"/>
+                                    <Setter Property="FontSize" Value="13"/>
+                                    <Setter Property="Padding" Value="10,0,0,0"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
                     </DataGrid.Columns>
+
                 </DataGrid>
             </StackPanel>
         </Grid>

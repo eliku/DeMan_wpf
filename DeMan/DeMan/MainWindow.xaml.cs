@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,11 +21,10 @@ namespace DeMan
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
             InitializeComponent();
-
+            productGrid.Items.Add(new DataTableProduct { idType = 34, Address = 0, Name = "Binar 10D" });
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
@@ -55,7 +55,25 @@ namespace DeMan
         {
             AllPanel.Content = new DeMan.Bootloader_page();
         }
+        private void MenuLight_Click(object sender, RoutedEventArgs e)
+        {
+            Brush[] brushes = typeof(Brushes).GetProperties().Select(p => (Brush)p.GetValue(null)).ToArray();
+            Random r = new Random();
+            var b = brushes[r.Next(brushes.Length)];
+            Application.Current.Resources["solidGrayBrush"] = new SolidColorBrush(Color.FromArgb(0xFF, 0xBB, 0xEC, 0xF3)); 
+            Application.Current.Resources["solidTextBrush"] = new SolidColorBrush(Color.FromArgb(0xFF, 0x00, 0x00, 0x00)); 
+            Application.Current.Resources["solidPanelBrush"] = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0xFF, 0xFF)); 
+        }
 
+        private void MenuDark_Click(object sender, RoutedEventArgs e)
+        {
+            Brush[] brushes = typeof(Brushes).GetProperties().Select(p => (Brush)p.GetValue(null)).ToArray();
+            Random r = new Random();
+            var b = brushes[r.Next(brushes.Length)];
+            Application.Current.Resources["solidGrayBrush"] = new SolidColorBrush(Color.FromArgb(0xFF, 0x2D, 0x2D, 0x30)); 
+            Application.Current.Resources["solidTextBrush"] = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0xFF, 0xFF)); 
+            Application.Current.Resources["solidPanelBrush"] = new SolidColorBrush(Color.FromArgb(0xFF, 0x00, 0x00, 0x00));
+        }
     }
 
 }
