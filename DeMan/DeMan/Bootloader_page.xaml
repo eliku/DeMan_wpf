@@ -16,7 +16,7 @@
             <RowDefinition/>
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.ColumnSpan="2" Background="{DynamicResource solidGrayBrush}">
+        <Grid Background="{DynamicResource solidGrayBrush}" HorizontalAlignment="Left" Width="655">
             <StackPanel x:Name="ButtonBoot" Orientation="Horizontal" HorizontalAlignment="Center" Width="655">
                 <Button x:Name="btnOpenFile" Content="Open hex-file" Background="{x:Null}" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{DynamicResource solidTextBrush}" Width="130" Height="50" FontSize="13" />
                 <Button x:Name="btnStartBoot" Content="Start bootloader" Background="{x:Null}" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{DynamicResource solidTextBrush}" Width="130" Height="50" FontSize="13" />

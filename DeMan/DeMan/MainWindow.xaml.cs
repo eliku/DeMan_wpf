@@ -24,7 +24,7 @@ namespace DeMan
         public MainWindow()
         {
             InitializeComponent();
-            productGrid.Items.Add(new DataTableProduct { idType = 34, Address = 0, Name = "Binar 10D" });
+           // productGrid.Items.Add(new DataTableProduct { idType = 34, Address = 0, Name = "Binar 10D" });
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
