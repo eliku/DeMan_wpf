@@ -10,7 +10,7 @@
       d:DesignHeight="450" d:DesignWidth="655"
       Title="Bootloader_page">
 
-    <Grid>
+    <Grid Background="{DynamicResource solidGrayBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition/>
@@ -18,11 +18,11 @@
         </Grid.RowDefinitions>
         <Grid Background="{DynamicResource solidGrayBrush}" HorizontalAlignment="Left" Width="655">
             <StackPanel x:Name="ButtonBoot" Orientation="Horizontal" HorizontalAlignment="Center" Width="655">
-                <Button x:Name="btnOpenFile" Content="Open hex-file" Background="{x:Null}" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{DynamicResource solidTextBrush}" Width="130" Height="50" FontSize="13" />
-                <Button x:Name="btnStartBoot" Content="Start bootloader" Background="{x:Null}" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{DynamicResource solidTextBrush}" Width="130" Height="50" FontSize="13" />
-                <Button x:Name="btnVersionBoot" Content="Version" Background="{x:Null}" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{DynamicResource solidTextBrush}" Width="130" Height="50" FontSize="13" />
-                <Button x:Name="btnWriteBoot" Content="Download" Background="{x:Null}" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{DynamicResource solidTextBrush}" Width="130" Height="50" FontSize="13" Click="btnWriteBoot_Click" />
-                <Button x:Name="btnRunBoot" Content="Run" Background="{x:Null}" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{DynamicResource solidTextBrush}" Width="130" Height="50" FontSize="13" />
+                <Button x:Name="btnOpenFile" Content="Open hex-file" Background="{x:Null}" VerticalAlignment="Stretch" BorderBrush="{x:Null}" Foreground="{DynamicResource solidTextBrush}" Width="130" Height="50" FontSize="13" />
+                <Button x:Name="btnStartBoot" Content="Start bootloader" Background="{x:Null}" VerticalAlignment="Stretch" BorderBrush="{x:Null}" Foreground="{DynamicResource solidTextBrush}" Width="130" Height="50" FontSize="13" />
+                <Button x:Name="btnVersionBoot" Content="Version" Background="{x:Null}" VerticalAlignment="Stretch" BorderBrush="{x:Null}" Foreground="{DynamicResource solidTextBrush}" Width="130" Height="50" FontSize="13" />
+                <Button x:Name="btnWriteBoot" Content="Download" Background="{x:Null}" VerticalAlignment="Stretch" BorderBrush="{x:Null}" Foreground="{DynamicResource solidTextBrush}" Width="130" Height="50" FontSize="13" Click="btnWriteBoot_Click" />
+                <Button x:Name="btnRunBoot" Content="Run" Background="{x:Null}" VerticalAlignment="Stretch" BorderBrush="{x:Null}" Foreground="{DynamicResource solidTextBrush}" Width="130" Height="50" FontSize="13" />
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1" Margin="0,0,0,0" Grid.RowSpan="2" Background="{DynamicResource solidPanelBrush}">
